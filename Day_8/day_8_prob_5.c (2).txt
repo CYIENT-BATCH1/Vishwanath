@@ -1,0 +1,23 @@
+#include <stdio.h>
+
+int main()
+{
+    int byte,bit;
+    printf("enter the byte\n");
+    scanf("%d",&byte);
+    printf("enter the bit position\n");
+    scanf("%d",&bit);
+    if(byte>=256)
+    {
+        printf("Entered byte number is greater than 255\n");
+        return 0;
+    }
+    byte=flip(&byte,bit);
+    printf("flipped byte is %d",byte);
+}
+int flip(char *number,int bit)
+{int n;
+n=*number;
+n=n^(1<<(bit - 1));
+return n;
+}
