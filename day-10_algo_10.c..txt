@@ -1,0 +1,9 @@
+/*Algorithm
+1)assign 50 value to G_Eng_EngineTemperature_uchar
+2)assign 1000 value to G_Eng_EngineRpm_uint
+3)convert the temperature and rpm to binary value
+4)value of  9 to 12 bit in rpm  are stored in first 3 bits of first array element or with 0x01
+5)value from 1 to 8 bit in rpm register are store in 1 array element by bitwise or with 0xF4
+6)value in 0 bit is store in 7 bit of 2 array element by doing or with 0x07
+7)binary value of temperature is stored in 3 array element
+8)print the value of all array elements in binary form by passing them in function

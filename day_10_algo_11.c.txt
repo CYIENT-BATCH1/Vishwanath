@@ -1,0 +1,8 @@
+/*Algorithm
+1)assign -60 value to G_Str_SteeringAngle_sint
+2)convert the G_Str_SteeringAngle_sint to binary values
+3)take  G_Msg_SteeringInformation_Byte[i] array and store the binary values in the array elements
+4)store binary value in 11 and 10 bits in 0 and 1 bits of array element 1 by doing bitwise operation with 0x03
+5)store binary value in 0 to 7 bits in  array element 2 by doing bitwise operation with 0xF1
+6)store binary value in 6 and 7 bits in array element 3 by doing bitwise operation with 0x00;
+7)print the values of array elements     
