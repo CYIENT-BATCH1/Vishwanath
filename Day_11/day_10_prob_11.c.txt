@@ -1,0 +1,50 @@
+#include<stdio.h>
+ unsigned char G_Msg_SteeringInformation_Byte[3];
+ void binary_values(char a);
+void binary_values(char a)
+{
+  for(int i=7;i>=0;i--)
+  {
+      a&(1<<i)?printf(" 1 "):printf(" 0 ");
+  }
+}
+ 
+int main()
+{
+  unsigned char G_Msg_SteeringInformation_Byte[3];
+  printf("steering information\n");
+  for(int i=0;i<3;i++)
+  {
+      if (i==0)
+      {
+          G_Msg_SteeringInformation_Byte[i]=0x03;
+          binary_values(G_Msg_SteeringInformation_Byte[i]);
+          printf("\n");
+      }
+      if(i==1)
+      {
+           G_Msg_SteeringInformation_Byte[i]=0xF1;
+           binary_values(G_Msg_SteeringInformation_Byte[i]);
+           printf("\n");
+      }
+      if(i==2)
+      {
+           G_Msg_SteeringInformation_Byte[i]=0x00;
+           binary_values(G_Msg_SteeringInformation_Byte[i]);
+           printf("\n");
+    }
+  }
+  for(int i=0;i<3;i++)
+  {
+      printf("steering angle information %x\n", G_Msg_SteeringInformation_Byte[i]);
+  }
+  return 0;
+}
+/*Algorithm
+1)assign -60 value to G_Str_SteeringAngle_sint
+2)convert the G_Str_SteeringAngle_sint to binary values
+3)take  G_Msg_SteeringInformation_Byte[i] array and store the binary values in the array elements
+4)store binary value in 11 and 10 bits in 0 and 1 bits of array element 1 by doing bitwise operation with 0x03
+5)store binary value in 0 to 7 bits in  array element 2 by doing bitwise operation with 0xF1
+6)store binary value in 6 and 7 bits in array element 3 by doing bitwise operation with 0x00;
+7)print the values of array elements     
