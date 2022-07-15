@@ -1,0 +1,15 @@
+#include <stdio.h>
+
+int main()
+{
+    unsigned int num;
+    printf("enter the number\n");
+    scanf(" %u",&num);
+    unsigned int odd=num&0xAAAAAAAAAAAAAAAA;
+    unsigned int even=num&0x5555555555555555;
+    printf("%u",odd);
+    printf("%u",even);
+    printf("%u",(odd>>1)|(even<<1));
+    return 0;
+}
+/*

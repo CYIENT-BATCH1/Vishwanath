@@ -1,0 +1,20 @@
+#include <stdio.h>
+
+int main()
+{
+    int ADC0NO,CMCONO;
+    printf("enter number to check ADC0NO register\n");
+    scanf("%d",&ADC0NO);
+    printf("enter number to check CMCONO  register\n");
+    scanf("%d",&CMCONO);
+    if((28 & ADC0NO)==28)
+    {
+        CMCONO=CMCONO&0xF0;
+        printf("number after clearing required bits positions%d\n",CMCONO);
+    }
+    else
+    {
+        printf("CHS3,CHS2,CHS1,CHS0 bits of ADC0NO register are not equal to 0x07\n");
+    }
+    return 0;
+}
